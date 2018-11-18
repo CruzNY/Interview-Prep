@@ -128,6 +128,16 @@ public class SinglyLinkList {
             pM.link = p1;
         return startM;
     }
+    public SinglyLinkList merge1(SinglyLinkList list){
+	SinglyLinkList mergeList = new SinglyLinkList();
+	mergeList.start = merge1(start, list.start);
+    }
+    private Node merge1(Node p1, Node p2){
+	Node startM;
+	if(p1.info <= p2.inf{}
+    }	
+	
+	
 }
 
 class Node{
