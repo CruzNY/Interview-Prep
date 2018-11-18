@@ -18,7 +18,20 @@ public class SinglyLinkList {
         
     }
     public static void main (String argsp[]){
-
+        SinglyLinkList list1 = new SinglyLinkList();
+        SinglyLinkList list2 = new SinglyLinkList();
+        
+        list1.createList();
+        list2.createList();
+        
+        list1.displayList();
+        list2.displayList();
+        
+        SinglyLinkList list3;
+        list3 = list1.merge1(list2);
+        list3.displayList();
+        
+        
     }
     
     public void displayList(){
@@ -131,10 +144,43 @@ public class SinglyLinkList {
     public SinglyLinkList merge1(SinglyLinkList list){
 	SinglyLinkList mergeList = new SinglyLinkList();
 	mergeList.start = merge1(start, list.start);
+        return mergeList;
     }
     private Node merge1(Node p1, Node p2){
 	Node startM;
-	if(p1.info <= p2.inf{}
+        if(p1.info <= p2.info ){
+            startM = new Node(p1.info);
+            p1 = p1.link;
+        }
+        else{
+            startM = new Node(p2.info);
+            p2 = p2.link;
+        }
+        Node pM = startM;
+        
+        while(p1 != null && p2 != null){
+            if(p1.info <= p2.info){
+                pM.link = new Node(p1.info);
+                p1 = p1.link;
+            }
+            else{
+                pM.link = new Node(p2.info);
+                p2 = p2.link;
+            }
+            pM = pM.link;
+        }
+        while(p1 != null){
+            pM.link = new Node(p1.info);
+            p1 = p1.link;
+            pM = pM.link;
+        }
+        while(p2 != null){
+            pM.link = new Node(p2.info);
+            p2 = p2.link;
+            pM = pM.link;
+        }
+        return startM;
+            
     }	
 	
 	
